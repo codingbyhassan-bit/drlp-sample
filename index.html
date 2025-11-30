@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. John | Medical Specialist</title>
+    <meta name="description" content="Dr. John - Expert Medical Specialist with over 5 years of experience providing compassionate patient care.">
+    
+    <!-- Google Fonts: Inter for a clean, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN for instant styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Configuration for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Primary Blue
+                            600: '#0284c7', // Darker Blue
+                            800: '#075985', // Deep Blue
+                            900: '#0c4a6e', // Navy
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Background Gradient */
+        .hero-bg {
+            background: linear-gradient(rgba(12, 74, 110, 0.85), rgba(12, 74, 110, 0.7)), 
+                        url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased bg-gray-50">
+
+    <!-- SECTION 1: NAVIGATION & HEADER -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-medical-600 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-user-doctor text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-2xl text-gray-900 tracking-tight">Dr. John</h1>
+                        <p class="text-xs text-medical-600 font-medium uppercase tracking-wider">Medical Specialist</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-600 hover:text-medical-600 font-medium transition">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-medical-600 font-medium transition">Services</a>
+                    <a href="#ethics" class="text-gray-600 hover:text-medical-600 font-medium transition">Patient Rights</a>
+                    <a href="#contact" class="bg-medical-600 text-white px-6 py-2.5 rounded-full hover:bg-medical-700 transition shadow-lg shadow-medical-500/30 font-medium">
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-medical-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-medical-600 hover:bg-gray-50 rounded-md">About</a>
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-medical-600 hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#ethics" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-medical-600 hover:bg-gray-50 rounded-md">Patient Rights</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-white bg-medical-600 rounded-md text-center mt-4">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 2: HERO SECTION -->
+    <section class="hero-bg h-screen min-h-[600px] flex items-center justify-center text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
+            <span class="reveal bg-medical-500/20 border border-medical-400/30 text-medical-100 px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase mb-6 inline-block backdrop-blur-sm">
+                5+ Years of Medical Excellence
+            </span>
+            <h1 class="reveal text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                Compassionate Care,<br>
+                <span class="text-medical-400">Advanced Medicine.</span>
+            </h1>
+            <p class="reveal text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Dedicated to improving your health through personalized treatment plans and modern medical practices. Your well-being is our priority.
+            </p>
+            <div class="reveal flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white text-medical-800 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-xl transform hover:-translate-y-1">
+                    Book a Consultation
+                </a>
+                <a href="#services" class="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition">
+                    Our Services
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/70 hover:text-white transition">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 3: ABOUT DR. JOHN -->
+    <section id="about" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="reveal relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-medical-100 rounded-full z-0"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-medical-50 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Dr. John Portrait" 
+                         class="relative z-10 w-full h-[500px] object-cover rounded-2xl shadow-2xl">
+                    
+                    <!-- Stats Card Floating -->
+                    <div class="absolute bottom-10 left-[-20px] md:left-[-30px] z-20 bg-white p-6 rounded-xl shadow-xl border-l-4 border-medical-500 max-w-[200px]">
+                        <p class="text-4xl font-bold text-gray-900">5+</p>
+                        <p class="text-sm text-gray-600 font-medium">Years of Experience</p>
+                        <div class="mt-2 text-xs text-medical-600 font-bold uppercase">Certified Specialist</div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Meet Dr. John</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Dr. John is a highly respected medical specialist dedicated to providing comprehensive healthcare. With over 5 years of hands-on experience in clinical environments, he combines academic excellence with a deeply empathetic approach to patient care.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Graduating from top-tier medical institutions, Dr. John stays at the forefront of medical technology to ensure accurate diagnosis and effective treatment plans.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-medical-600"></i>
+                            <span class="text-gray-700 font-medium">Board Certified Specialist</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-medical-600"></i>
+                            <span class="text-gray-700 font-medium">24/7 Emergency Support Available</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-medical-600"></i>
+                            <span class="text-gray-700 font-medium">Modern Diagnostic Technology</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SERVICES -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold text-medical-600 uppercase tracking-wide mb-2">Our Expertise</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Medical Services</h3>
+                <div class="w-20 h-1.5 bg-medical-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">General Consultation</h4>
+                    <p class="text-gray-600 leading-relaxed">Thorough physical examinations and health assessments to maintain your well-being.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Cardiology Support</h4>
+                    <p class="text-gray-600 leading-relaxed">Monitoring heart health, blood pressure management, and preventive cardiac care.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-vial-virus"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Laboratory Analysis</h4>
+                    <p class="text-gray-600 leading-relaxed">Quick and accurate blood work and sample analysis for precise diagnosis.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Telemedicine</h4>
+                    <p class="text-gray-600 leading-relaxed">Remote consultations via secure video calls for your convenience and safety.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Family Medicine</h4>
+                    <p class="text-gray-600 leading-relaxed">Comprehensive care for family members of all ages, from pediatrics to geriatrics.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-medical-600 text-2xl mb-6 group-hover:bg-medical-600 group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Health Plans</h4>
+                    <p class="text-gray-600 leading-relaxed">Customized nutrition and lifestyle plans to prevent chronic diseases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: ETHICS & WORKING POLICY (Human Rights/Policy Section) -->
+    <section id="ethics" class="py-20 bg-medical-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Patient Rights & <br>Working Policy</h2>
+                    <p class="text-medical-100 text-lg mb-6 leading-relaxed">
+                        We believe that healthcare is a fundamental human right. Our clinic operates under strict ethical guidelines to ensure dignity, privacy, and equality for every patient.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="bg-medical-800 p-3 rounded-lg h-fit">
+                                <i class="fa-solid fa-user-shield text-xl text-medical-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Privacy & Confidentiality</h4>
+                                <p class="text-medical-200 text-sm">Your medical records are strictly protected under global privacy standards (HIPAA/GDPR compliant).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="bg-medical-800 p-3 rounded-lg h-fit">
+                                <i class="fa-solid fa-scale-balanced text-xl text-medical-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Non-Discrimination Policy</h4>
+                                <p class="text-medical-200 text-sm">We provide care regardless of race, religion, gender, or status. Equal treatment is our promise.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="bg-medical-800 p-3 rounded-lg h-fit">
+                                <i class="fa-solid fa-clock text-xl text-medical-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Working Hours</h4>
+                                <p class="text-medical-200 text-sm">Mon-Fri: 09:00 - 18:00 | Sat: 10:00 - 14:00 | Sun: Emergency Only.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Decorative Visual -->
+                <div class="reveal relative h-full min-h-[400px] bg-medical-800 rounded-2xl overflow-hidden shadow-2xl border border-medical-700">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-hand-holding-medical text-9xl text-medical-700/50"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-medical-900 to-transparent">
+                        <p class="font-serif italic text-xl">"The good physician treats the disease; the great physician treats the patient who has the disease."</p>
+                        <p class="mt-2 text-medical-400 font-bold">- Sir William Osler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT & FOOTER -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold text-medical-600 uppercase tracking-wide mb-2">Get in Touch</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Book an Appointment</h3>
+                <p class="mt-4 text-gray-600 max-w-xl mx-auto">Fill out the form below or visit us at our clinic. We look forward to assisting you on your journey to better health.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contact Info -->
+                <div class="reveal lg:col-span-1 space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-4 mb-2">
+                            <i class="fa-solid fa-location-dot text-medical-600 text-xl"></i>
+                            <h4 class="font-bold text-gray-900">Clinic Address</h4>
+                        </div>
+                        <p class="text-gray-600 pl-9">123 Health Avenue,<br>Medical District, City 10012</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-4 mb-2">
+                            <i class="fa-solid fa-phone text-medical-600 text-xl"></i>
+                            <h4 class="font-bold text-gray-900">Phone</h4>
+                        </div>
+                        <p class="text-gray-600 pl-9">+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-4 mb-2">
+                            <i class="fa-solid fa-envelope text-medical-600 text-xl"></i>
+                            <h4 class="font-bold text-gray-900">Email</h4>
+                        </div>
+                        <p class="text-gray-600 pl-9">contact@drjohn.com<br>support@drjohn.com</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="reveal lg:col-span-2 bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Your appointment request has been sent.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition" placeholder="(555) 000-0000">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Date</label>
+                                <input type="date" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Reason for Visit</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition bg-white">
+                                    <option>General Consultation</option>
+                                    <option>Cardiology Checkup</option>
+                                    <option>Follow-up</option>
+                                    <option>Emergency</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition" placeholder="Briefly describe your symptoms..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-medical-600 text-white font-bold py-4 rounded-lg hover:bg-medical-700 transition shadow-lg shadow-medical-500/30">
+                            Confirm Appointment Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-2xl font-bold text-white mb-2">Dr. John</h2>
+                <p class="text-sm">Excellence in Medical Healthcare.</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+            </div>
+
+            <div class="text-sm text-center md:text-right">
+                <p>&copy; 2023 Dr. John Clinic. All rights reserved.</p>
+                <p class="mt-1 hover:text-white cursor-pointer">Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden'); // Fallback logic
+            if(menu.style.maxHeight){
+                menu.style.maxHeight = null;
+            } else {
+                menu.style.maxHeight = menu.scrollHeight + "px";
+            }
+        });
+
+        // Sticky Navbar Shadow Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
